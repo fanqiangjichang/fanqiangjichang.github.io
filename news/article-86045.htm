@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+      <link rel="canonical" href="https://fanqiangjichang.github.io/news/article-86045.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MySQL如何将没有定界符的数字和字符串解释为日期？</title>
+        <meta name="description" content="如果提供日期，则即使格式为&nbsp;YYYYMMDDHHMMSS或YYMMDDHHMMSS的字符串或数字（即使没有任何定界符）也很有意义，然后MySQL将该字符串解释为有效日期。 给出了有效日期和无" />
+        <link rel="icon" href="/assets/website/img/freeclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="翻墙机场 推荐VPN免费节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://fanqiangjichang.github.io/news/article-86045.htm" />
+    <meta property="og:site_name" content="翻墙机场 推荐VPN免费节点订阅官网" />
+    <meta property="og:title" content="MySQL如何将没有定界符的数字和字符串解释为日期？" />
+    <meta property="og:image" content="https://fanqiangjichang.github.io/uploads/20250116/9611533331d44213c2cbd5578176104c.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:48:06" />
+    <meta property="og:updated_time" content="2025-04-01T09:48:06" />
+        <meta property="og:description" content="如果提供日期，则即使格式为&nbsp;YYYYMMDDHHMMSS或YYMMDDHHMMSS的字符串或数字（即使没有任何定界符）也很有意义，然后MySQL将该字符串解释为有效日期。 给出了有效日期和无" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL如何将没有定界符的数字和字符串解释为日期？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/bootstrap.min.css">
+    <!-- Font -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/font-awesome.min.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/slicknav.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/owl.theme.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/main.css">
+    <!-- Extras Style -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/extras.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JMGQZYHJKC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JMGQZYHJKC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+              <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="icon-menu"></span>
+                        <span class="icon-menu"></span>
+                        <span class="icon-menu"></span>
+                    </button>
+                    <a href="/" class="navbar-brand xcblog-blog-logo">
+                                                <span>翻墙机场</span>
+                                            </a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                首页                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">
+                                免费节点                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">
+                                推荐机场                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">
+                                新闻资讯                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">
+                                客户端                            </a>
+                        </li>
+                                            </ul>
+                </div>
+            </div>
+            <!-- Mobile Menu Start -->
+            <ul class="mobile-menu navbar-nav">
+                                <li>
+                    <a href="/">
+                        首页                    </a>
+                </li>
+                                <li>
+                    <a href="/free-nodes/">
+                        免费节点                    </a>
+                </li>
+                                <li>
+                    <a href="/paid-subscribe/">
+                        推荐机场                    </a>
+                </li>
+                                <li>
+                    <a href="/news/">
+                        新闻资讯                    </a>
+                </li>
+                                <li>
+                    <a href="/client.htm">
+                        客户端                    </a>
+                </li>
+                            </ul>
+            <!-- Mobile Menu End -->
+        </nav>
+        <!-- Navbar End -->
+        <!-- sliders -->
+        <div id="sliders">
+            <div class="full-width">
+                <!-- light slider -->
+                <div id="light-slider" class="carousel slide">
+                    <div id="carousel-area">
+                        <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img src="/assets/website/img/freeclashx/slider/bg-1.jpg" alt="">
+                                    <div class="carousel-caption">
+                                        <h1 class="slide-title">MySQL如何将没有定界符的数字和字符串解释为日期？</h1>
+                                        <h5 class="slide-text">
+                                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End sliders -->
+    </header>
+    <!-- Header Area wrapper End -->
+    
+    <!-- Services Section Start -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>如果提供日期，则即使格式为<strong>&nbsp;YYYYMMDDHHMMSS</strong>或<strong>YYMMDDHHMMSS</strong>的字符串或数字（即使没有任何定界符）也很有意义，然后MySQL将该字符串解释为有效日期。</p> <p>给出了有效日期和无效日期的示例-</p> <pre>mysql&gt;&nbsp;Select&nbsp;Timestamp(20171022040536); +---------------------------+ |&nbsp;Timestamp(20171022040536)&nbsp;| +---------------------------+ |&nbsp;2017-10-22&nbsp;04:05:36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +---------------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;Timestamp('20171022040536'); +-----------------------------+ |&nbsp;Timestamp('20171022040536')&nbsp;| +-----------------------------+ |&nbsp;2017-10-22&nbsp;04:05:36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-----------------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;Timestamp('171022040536'); +---------------------------+ |&nbsp;Timestamp('171022040536')&nbsp;| +---------------------------+ |&nbsp;2017-10-22&nbsp;04:05:36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +---------------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>以上查询显示了有效字符串以及数字的示例，MySQL可以将其解释为日期值。</p> <pre>mysql&gt;&nbsp;Select&nbsp;Timestamp('20171022048536'); +-----------------------------+ |&nbsp;Timestamp('20171022048536')&nbsp;| +-----------------------------+ |&nbsp;NULL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-----------------------------+ 1&nbsp;row&nbsp;in&nbsp;set,&nbsp;1&nbsp;warning&nbsp;(0.00&nbsp;sec)</pre> <p>上面的查询是无效字符串的示例。MySQL返回NULL是因为字符串在一分钟内具有错误的值(85)。</p> <pre>mysql&gt;&nbsp;Select&nbsp;Timestamp('20171322040536'); +-----------------------------+ |&nbsp;Timestamp('20171322040536')&nbsp;| +-----------------------------+ |&nbsp;NULL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-----------------------------+ 1&nbsp;row&nbsp;in&nbsp;set,&nbsp;1&nbsp;warning&nbsp;(0.00&nbsp;sec)</pre> <p>在上面的查询中，MySQL返回NULL，因为该字符串在一个月内的值(13)错误。</p> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85329.htm">领养宠物协议书范本模板下载 领养宠物协议书范本模板下载电子版</a></p>
+                                        <p>下一个：<a href="/news/article-86046.htm">宠物粮品牌起名字大全图片及名字（宠物粮商标取名大全）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-74945.htm" title="动物疫苗监管部门是哪里的部门（动物疫苗管理制度）">动物疫苗监管部门是哪里的部门（动物疫苗管理制度）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-node-share-links.htm" title="翻墙机场 | 3月27日22.7M/S|免费Clash/SSR/Shadowrocket/V2ray订阅节点分享">翻墙机场 | 3月27日22.7M/S|免费Clash/SSR/Shadowrocket/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-node-share-links.htm" title="翻墙机场 | 3月19日22.1M/S|免费SSR/V2ray/Clash/Shadowrocket订阅节点分享">翻墙机场 | 3月19日22.1M/S|免费SSR/V2ray/Clash/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-clash-v2ray-ss-ssr.htm" title="翻墙机场 | 3月13日19.7M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点分享">翻墙机场 | 3月13日19.7M/S|免费SSR/Clash/V2ray/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/news/article-76966.htm" title="国内动物疫苗龙头企业名单公示山东（动物疫苗行业排名）">国内动物疫苗龙头企业名单公示山东（动物疫苗行业排名）</a></li>
+                        <li class="py-2"><a href="/news/article-73604.htm" title="成都市动物防疫站免费疫苗预约（成都动物防疫站电话）">成都市动物防疫站免费疫苗预约（成都动物防疫站电话）</a></li>
+                        <li class="py-2"><a href="/news/article-79710.htm" title="猫咪疫苗打针多少钱（猫咪打疫苗多少钱一针?）">猫咪疫苗打针多少钱（猫咪打疫苗多少钱一针?）</a></li>
+                        <li class="py-2"><a href="/news/article-78348.htm" title="养猫咪的人会得什么病（养猫会有病吗）">养猫咪的人会得什么病（养猫会有病吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-high-speed-nodes.htm" title="翻墙机场 | 3月30日21.1M/S|免费V2ray/SSR/Clash/Shadowrocket订阅节点分享">翻墙机场 | 3月30日21.1M/S|免费V2ray/SSR/Clash/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-subscribe-node.htm" title="翻墙机场 | 3月16日20.7M/S|免费V2ray/Clash/SSR/Shadowrocket订阅节点分享">翻墙机场 | 3月16日20.7M/S|免费V2ray/Clash/SSR/Shadowrocket订阅节点分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+    
+        <!-- Footer Section -->
+    <footer class="footer">
+        <!-- Copyright -->
+        <div id="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            翻墙机场 推荐VPN免费节点订阅官网 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <ul class="nav nav-inline  justify-content-end ">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Sitemap</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Privacy Policy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Terms of services</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright  End-->
+    </footer>
+    <!-- Footer Section End-->
+    <!-- Go to Top Link -->
+    <a href="#" class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader" id="loader-1"></div>
+    </div>
+    <!-- End Preloader -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/website/js/frontend/freeclashx/jquery-min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.mixitup.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.countTo.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.nav.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/scrolling-nav.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.slicknav.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/form-validator.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/contact-form-script.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

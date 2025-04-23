@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+      <link rel="canonical" href="https://fanqiangjichang.github.io/news/article-102275.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Spark-submit提交任务到集群</title>
+        <meta name="description" content="示例代码参考AMPCamp2015之SparkSQL，开发环境使用idea。首先需要将程序打包成jar   选择project structure --》artifacts ，由于集群已经有了运行依赖" />
+        <link rel="icon" href="/assets/website/img/freeclashx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="翻墙机场 推荐VPN免费节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://fanqiangjichang.github.io/news/article-102275.htm" />
+    <meta property="og:site_name" content="翻墙机场 推荐VPN免费节点订阅官网" />
+    <meta property="og:title" content="Spark-submit提交任务到集群" />
+    <meta property="og:image" content="https://fanqiangjichang.github.io/uploads/20250116/d7b5f4a911d79162edd3b3b27d22edd1.webp" />
+        <meta property="og:release_date" content="2025-04-23T08:43:07" />
+    <meta property="og:updated_time" content="2025-04-23T08:43:07" />
+        <meta property="og:description" content="示例代码参考AMPCamp2015之SparkSQL，开发环境使用idea。首先需要将程序打包成jar   选择project structure --》artifacts ，由于集群已经有了运行依赖" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spark-submit提交任务到集群">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/bootstrap.min.css">
+    <!-- Font -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/font-awesome.min.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/slicknav.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/owl.theme.css">
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/main.css">
+    <!-- Extras Style -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/extras.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/freeclashx/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JMGQZYHJKC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JMGQZYHJKC');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+              <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="icon-menu"></span>
+                        <span class="icon-menu"></span>
+                        <span class="icon-menu"></span>
+                    </button>
+                    <a href="/" class="navbar-brand xcblog-blog-logo">
+                                                <span>翻墙机场</span>
+                                            </a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                首页                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/free-nodes/">
+                                免费节点                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/paid-subscribe/">
+                                推荐机场                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/news/">
+                                新闻资讯                            </a>
+                        </li>
+                                                <li class="nav-item">
+                            <a class="nav-link" href="/client.htm">
+                                客户端                            </a>
+                        </li>
+                                            </ul>
+                </div>
+            </div>
+            <!-- Mobile Menu Start -->
+            <ul class="mobile-menu navbar-nav">
+                                <li>
+                    <a href="/">
+                        首页                    </a>
+                </li>
+                                <li>
+                    <a href="/free-nodes/">
+                        免费节点                    </a>
+                </li>
+                                <li>
+                    <a href="/paid-subscribe/">
+                        推荐机场                    </a>
+                </li>
+                                <li>
+                    <a href="/news/">
+                        新闻资讯                    </a>
+                </li>
+                                <li>
+                    <a href="/client.htm">
+                        客户端                    </a>
+                </li>
+                            </ul>
+            <!-- Mobile Menu End -->
+        </nav>
+        <!-- Navbar End -->
+        <!-- sliders -->
+        <div id="sliders">
+            <div class="full-width">
+                <!-- light slider -->
+                <div id="light-slider" class="carousel slide">
+                    <div id="carousel-area">
+                        <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img src="/assets/website/img/freeclashx/slider/bg-1.jpg" alt="">
+                                    <div class="carousel-caption">
+                                        <h1 class="slide-title">Spark-submit提交任务到集群</h1>
+                                        <h5 class="slide-text">
+                                            <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End sliders -->
+    </header>
+    <!-- Header Area wrapper End -->
+    
+    <!-- Services Section Start -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="htmledit_views"> </h1> <div><span style="font-size:18px">示例代码参考<a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://blog.csdn.net/kinger0/article/details/46427985"  style="color:rgb(0,0,0); text-decoration:none; font-family:'Microsoft YaHei'; font-size:20px; line-height:30px" rel="nofollow">AMPCamp2015之SparkSQL</a>，开发环境使用idea。首先需要将程序打包成jar</span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/54c885eb07dcfe46a8a4b2ad5f25ef19.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> <div><span style="font-size:18px"><br /></span></div> <div><span style="font-size:18px">选择project structure --》artifacts ，由于集群已经有了运行依赖的jar包，打包时可以将这些jar包排除出去，以减小打包后的jar包的大小。</span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/7d6595d7ed4640d3f08422c08bf39a03.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> <div><span style="font-size:18px"><br /></span></div> <div><span style="font-size:18px">点击ok，然后选择build --》build artifacts，SparkSQLTest --》build，然后在工程目录的子目录下会生成j对应的jar文件：</span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/b21dd9d60c43808df0e1e4bd4990b636.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> <div><span style="font-size:18px"><br /></span></div> </h1> <div><span style="font-size:18px">首先启动集群，然后客户端来到spark-submit目录：/app/hadoop/spark131/bin</span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/c5bd58cdd256f19e919a42438f6dd742.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> <div><span style="font-size:18px"><br /></span></div> <div><span style="font-size:18px">spark-submit通过命令行的方式提交任务，具体参数信息如下<a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://spark.apache.org/docs/latest/submitting-applications.html"  rel="nofollow">参考</a>：</span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/8e3f78ce3d957a5d3d79ee07e1dbeea8.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> <div><span style="font-size:18px"><br /></span></div> <div><span style="font-size:18px">提交示例如下：</span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/8d7ae549f79768c23fa3f4c26fbabb3c.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> <div><span style="font-size:18px"><br /></span></div> <div><span style="font-size:18px">在命令行输入如下命令：</span></div> <div><span style="font-size:18px">./spark-submit &nbsp;--class SparkSQLTest --master spark:hadoop1:7077 --executor-memory 2g --num-executors 3 &nbsp;/home/kaiseu/MyProject/IdeaProjects/SparkProject/Saprk131/out/artifacts/SparkSQLTest_jar/SparkSQLTest.jar<br /></span></div> <div><span style="font-size:18px"><br /></span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/c23463cf5463a744e4570f7546895b7f.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> <div><span style="font-size:18px"><br /></span></div> <div><span style="font-size:18px">在web监控界面可以看到：</span></div> <div><span style="font-size:18px"><br /></span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/175697e0fe1a85fd795e723313edc19c.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> </h1> <div><span style="font-size:18px">结果如下：</span></div> <div><span style="font-size:18px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/d1ead418fce964c137a139528f77d5a4.jpg" alt="Spark-submit提交任务到集群"><br /></span></div> </h1> <div><span style="font-size:18px"><br /></span></div> <div></div> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-101478.htm">动物打疫苗在哪里打多少钱啊（动物打疫苗在哪里打多少钱啊一针）</a></p>
+                                        <p>下一个：<a href="/news/article-102276.htm">动物诊所 英语翻译 动物诊所 英语翻译怎么写</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-97085.htm" title="EFCore 6.0入门看这篇就够了">EFCore 6.0入门看这篇就够了</a></li>
+                        <li class="py-2"><a href="/news/article-83176.htm" title="淮北宠物救助电话（淮北市狗狗救助中心免费领养）">淮北宠物救助电话（淮北市狗狗救助中心免费领养）</a></li>
+                        <li class="py-2"><a href="/news/article-85327.htm" title="宠物医生报考什么专业（宠物医生报考什么专业最好）">宠物医生报考什么专业（宠物医生报考什么专业最好）</a></li>
+                        <li class="py-2"><a href="/news/article-87477.htm" title="一片片的枫叶（一片片的枫叶随风飘落,好像）">一片片的枫叶（一片片的枫叶随风飘落,好像）</a></li>
+                        <li class="py-2"><a href="/news/article-84631.htm" title="济南宠物狗领养（济南狗狗领养免费平台）">济南宠物狗领养（济南狗狗领养免费平台）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-node-share.htm" title="翻墙机场 | 4月3日22.6M/S|免费Clash/SSR/V2ray/Shadowrocket订阅节点分享">翻墙机场 | 4月3日22.6M/S|免费Clash/SSR/V2ray/Shadowrocket订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-free-subscribe-node.htm" title="翻墙机场 | 3月23日19.6M/S|免费V2ray/Shadowrocket/SSR/Clash订阅节点分享">翻墙机场 | 3月23日19.6M/S|免费V2ray/Shadowrocket/SSR/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-subscribe-node.htm" title="翻墙机场 | 4月1日21.3M/S|免费SSR/Shadowrocket/Clash/V2ray订阅节点分享">翻墙机场 | 4月1日21.3M/S|免费SSR/Shadowrocket/Clash/V2ray订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-clash-v2ray-ss-ssr.htm" title="翻墙机场 | 4月17日19.7M/S|免费V2ray/Shadowrocket/SSR/Clash订阅节点分享">翻墙机场 | 4月17日19.7M/S|免费V2ray/Shadowrocket/SSR/Clash订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-clash-v2ray-ss-ssr.htm" title="翻墙机场 | 4月5日19.4M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点分享">翻墙机场 | 4月5日19.4M/S|免费Clash/Shadowrocket/V2ray/SSR订阅节点分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">67</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+    
+        <!-- Footer Section -->
+    <footer class="footer">
+        <!-- Copyright -->
+        <div id="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <p class="copyright-text">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            翻墙机场 推荐VPN免费节点订阅官网 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <ul class="nav nav-inline  justify-content-end ">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Sitemap</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Privacy Policy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Terms of services</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright  End-->
+    </footer>
+    <!-- Footer Section End-->
+    <!-- Go to Top Link -->
+    <a href="#" class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader" id="loader-1"></div>
+    </div>
+    <!-- End Preloader -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/website/js/frontend/freeclashx/jquery-min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.mixitup.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.countTo.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.nav.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/scrolling-nav.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/jquery.slicknav.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/form-validator.min.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/contact-form-script.js"></script>
+    <script src="/assets/website/js/frontend/freeclashx/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

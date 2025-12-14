@@ -316,9 +316,9 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的用户管理面板有哪些功能？</h5></div>
+    <div class="panel-heading"><h5>Shadowrocket 的节点延迟测量如何帮助选择节点？</h5></div>
     <div class="panel-body">
-        Hiddify Next 面板可添加或删除用户、设置带宽限制、生成订阅链接、查看流量统计和节点状态。它提供直观的图形界面，无需命令行操作即可管理服务器资源。<hr />    </div>
+        Shadowrocket 会测试节点延迟和丢包率，并根据结果排序。用户可快速选择延迟最低的节点访问网站或视频，提高连接速度和稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 支持哪些类型的重写脚本？</h5></div>
@@ -326,19 +326,9 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
         QuantumultX 支持 JavaScript 脚本，可修改请求头、响应内容、自动跳转、广告屏蔽和定制流量处理。结合策略组，可实现高度个性化的网络访问控制和优化。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何选择全局代理与规则代理模式？</h5></div>
-    <div class="panel-body">
-        全局代理适合所有流量走节点，如游戏和全局科学上网；规则代理仅针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，根据使用场景选择模式。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 模式适合高并发环境吗？</h5></div>
     <div class="panel-body">
         适合。XTLS 去除冗余加密，提高 CPU 使用效率，降低延迟。结合策略组和多出口节点，可在高并发或多连接场景下保持稳定、高速的网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何导入订阅？</h5></div>
-    <div class="panel-body">
-        打开 Hiddify Next，进入主页点击“添加订阅”，输入机场提供的链接后确认。应用会自动同步节点并分类显示，支持一键测速与规则模式切换。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 是什么项目？</h5></div>
@@ -346,14 +336,9 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
         Mihomo 是 Clash Meta 的继任版本，也被称为 Clash.Meta 的社区分支。它优化了性能，支持更多协议如 Hysteria2、TUIC 等，同时提供更灵活的规则匹配系统，是目前非常流行的分流代理核心。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 TAP 模式与 TUN 模式区别是什么？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 如何导入订阅？</h5></div>
     <div class="panel-body">
-        TAP 模式模拟以太网接口，适合游戏流量代理；TUN 模式则模拟 IP 层接口，更适合全局代理。根据用途不同可自由选择，但需管理员权限运行。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的多路复用功能有哪些好处？</h5></div>
-    <div class="panel-body">
-        多路复用允许多个短连接共享同一 QUIC 通道，减少握手延迟和资源消耗。在高并发或频繁短连接场景下，能显著提升吞吐量和稳定性，尤其适合游戏或即时通讯应用。<hr />    </div>
+        打开 Hiddify Next，进入主页点击“添加订阅”，输入机场提供的链接后确认。应用会自动同步节点并分类显示，支持一键测速与规则模式切换。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 用户带宽限制如何配置？</h5></div>
@@ -361,9 +346,24 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
         管理员可设置每个用户上传、下载和总流量上限，超出限制可自动降速或阻止访问。保证服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的节点延迟测量如何帮助选择节点？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 的多路复用功能有哪些好处？</h5></div>
     <div class="panel-body">
-        Shadowrocket 会测试节点延迟和丢包率，并根据结果排序。用户可快速选择延迟最低的节点访问网站或视频，提高连接速度和稳定性，优化整体网络体验。    </div>
+        多路复用允许多个短连接共享同一 QUIC 通道，减少握手延迟和资源消耗。在高并发或频繁短连接场景下，能显著提升吞吐量和稳定性，尤其适合游戏或即时通讯应用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 的用户管理面板有哪些功能？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 面板可添加或删除用户、设置带宽限制、生成订阅链接、查看流量统计和节点状态。它提供直观的图形界面，无需命令行操作即可管理服务器资源。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的 TAP 模式与 TUN 模式区别是什么？</h5></div>
+    <div class="panel-body">
+        TAP 模式模拟以太网接口，适合游戏流量代理；TUN 模式则模拟 IP 层接口，更适合全局代理。根据用途不同可自由选择，但需管理员权限运行。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 如何选择全局代理与规则代理模式？</h5></div>
+    <div class="panel-body">
+        全局代理适合所有流量走节点，如游戏和全局科学上网；规则代理仅针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，根据使用场景选择模式。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -392,16 +392,16 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-28-node-share-links.htm" title="翻墙机场 | 11月28日20.6M/S|免费Shadowrocket节点/Clash节点/Singbox节点/SSR节点/V2ray节点订阅节点分享">翻墙机场 | 11月28日20.6M/S|免费Shadowrocket节点/Clash节点/Singbox节点/SSR节点/V2ray节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-10-free-v2ray.htm" title="翻墙机场 | 11月10日21.6M/S|免费Singbox节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点订阅节点分享">翻墙机场 | 11月10日21.6M/S|免费Singbox节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-5-free-high-speed-nodes.htm" title="翻墙机场 | 12月5日22.3M/S|免费V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点订阅节点分享">翻墙机场 | 12月5日22.3M/S|免费V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-2-free-v2ray.htm" title="翻墙机场 | 12月2日18M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点订阅节点分享">翻墙机场 | 12月2日18M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-8-free-v2ray-subscribe.htm" title="翻墙机场 | 12月8日22.6M/S|免费Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅节点分享">翻墙机场 | 12月8日22.6M/S|免费Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-node-share-links.htm" title="翻墙机场 | 11月13日21.8M/S|免费Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点订阅节点分享">翻墙机场 | 11月13日21.8M/S|免费Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-1-free-subscribe-node.htm" title="翻墙机场 | 12月1日22.5M/S|免费Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点订阅节点分享">翻墙机场 | 12月1日22.5M/S|免费Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点订阅节点分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-7-free-v2ray.htm" title="翻墙机场 | 11月7日18.3M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点订阅节点分享">翻墙机场 | 11月7日18.3M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-20-free-v2ray-subscribe.htm" title="翻墙机场 | 11月20日19.9M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点订阅节点分享">翻墙机场 | 11月20日19.9M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点订阅节点分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-21-node-share-links.htm" title="翻墙机场 | 11月21日19.5M/S|免费V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点订阅节点分享">翻墙机场 | 11月21日19.5M/S|免费V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-4-free-v2ray.htm" title="翻墙机场 | 12月4日18.1M/S|免费Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点订阅节点分享">翻墙机场 | 12月4日18.1M/S|免费Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-19-free-v2ray.htm" title="翻墙机场 | 11月19日20.6M/S|免费Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅节点分享">翻墙机场 | 11月19日20.6M/S|免费Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-23-free-node-subscribe-links.htm" title="翻墙机场 | 11月23日18.1M/S|免费V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点订阅节点分享">翻墙机场 | 11月23日18.1M/S|免费V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-6-clash-v2ray-ss-ssr.htm" title="翻墙机场 | 12月6日21.7M/S|免费Shadowrocket节点/SSR节点/Singbox节点/Clash节点/V2ray节点订阅节点分享">翻墙机场 | 12月6日21.7M/S|免费Shadowrocket节点/SSR节点/Singbox节点/Clash节点/V2ray节点订阅节点分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-26-free-v2ray-subscribe.htm" title="翻墙机场 | 11月26日21.2M/S|免费SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点订阅节点分享">翻墙机场 | 11月26日21.2M/S|免费SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-19-free-v2ray.htm" title="翻墙机场 | 11月19日20.6M/S|免费Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅节点分享">翻墙机场 | 11月19日20.6M/S|免费Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-10-clash-v2ray-ss-ssr.htm" title="翻墙机场 | 12月10日19.4M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点订阅节点分享">翻墙机场 | 12月10日19.4M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点订阅节点分享</a></li>
                     </ul>
     </div>
 </div>
@@ -413,7 +413,7 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> v2
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>

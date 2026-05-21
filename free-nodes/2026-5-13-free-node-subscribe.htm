@@ -356,14 +356,44 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 能否兼容最新的 iOS 系统？</h5></div>
+    <div class="panel-heading"><h5>WinXray 的 PAC 模式适合哪些场景？</h5></div>
     <div class="panel-body">
-        Potatso Lite 更新频率较低，在新版本 iOS 上可能出现兼容性问题。若遇到无法连接或闪退情况，建议升级至其他活跃维护的客户端如 Shadowrocket 或 Quantumult X。<hr />    </div>
+        PAC 模式通过规则动态决定流量是否走代理。适合访问国内外混合网站环境，无需手动切换节点，自动分流提高网络访问效率和连接稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密如何确保数据安全？</h5></div>
+    <div class="panel-body">
+        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下，保证节点可用，提升数据安全和连接稳定性，降低被检测风险，确保长期安全访问。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 节点无法连接时应如何排查？</h5></div>
+    <div class="panel-body">
+        首先检查服务器是否在线，其次查看端口、防火墙和 TLS 配置是否正确。还可以通过日志观察 handshake 是否成功，或尝试更换传输协议如 WS、gRPC 来确认问题来源。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何在 Sing-box 中设置多个 outbound 实现策略路由？</h5></div>
+    <div class="panel-body">
+        在 sing-box 的配置中定义多个 outbound 对象并为 routing 模块配置 rules，将不同目的地或应用流量指向对应 outbound，从而实现分流、负载均衡或故障转移等复杂路由策略。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 显示配置已加载但无法访问外网，可能原因？</h5></div>
+    <div class="panel-body">
+        检查是否启用了系统代理或 TUN 模式，确认浏览器是否使用系统代理设置；查看防火墙或杀软是否拦截 WinXray；确认节点是否被机场下架或订阅失效，必要时重新导入订阅并测速。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 的配置文件与 Clash 有何区别？</h5></div>
     <div class="panel-body">
         Sing-box 的配置使用 JSON 格式，而 Clash 采用 YAML 格式。前者更适合程序自动解析，后者更便于人工编辑。Sing-box 在性能和扩展性上有明显优势，支持更细粒度的流量控制。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的混淆和协议设置如何选择才能绕过封锁？</h5></div>
+    <div class="panel-body">
+        选择模拟 HTTPS 的混淆方式如 tls1.2_ticket_auth，并搭配 AEAD 或协议插件，可以有效隐藏流量特征，降低被封锁风险。不同网络环境需测试选择最优组合。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 能否兼容最新的 iOS 系统？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 更新频率较低，在新版本 iOS 上可能出现兼容性问题。若遇到无法连接或闪退情况，建议升级至其他活跃维护的客户端如 Shadowrocket 或 Quantumult X。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 与 Clash 有什么关系？</h5></div>
@@ -373,37 +403,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 在路由器中如何更新节点订阅？</h5></div>
     <div class="panel-body">
-        在 PassWall2 面板中点击“订阅管理”，输入或更新订阅链接后，点击“手动更新”即可自动下载最新节点数据。也可设置定时任务每日自动更新，保持配置最新。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何在 Sing-box 中设置多个 outbound 实现策略路由？</h5></div>
-    <div class="panel-body">
-        在 sing-box 的配置中定义多个 outbound 对象并为 routing 模块配置 rules，将不同目的地或应用流量指向对应 outbound，从而实现分流、负载均衡或故障转移等复杂路由策略。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 节点无法连接时应如何排查？</h5></div>
-    <div class="panel-body">
-        首先检查服务器是否在线，其次查看端口、防火墙和 TLS 配置是否正确。还可以通过日志观察 handshake 是否成功，或尝试更换传输协议如 WS、gRPC 来确认问题来源。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的 PAC 模式适合哪些场景？</h5></div>
-    <div class="panel-body">
-        PAC 模式通过规则动态决定流量是否走代理。适合访问国内外混合网站环境，无需手动切换节点，自动分流提高网络访问效率和连接稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆和协议设置如何选择才能绕过封锁？</h5></div>
-    <div class="panel-body">
-        选择模拟 HTTPS 的混淆方式如 tls1.2_ticket_auth，并搭配 AEAD 或协议插件，可以有效隐藏流量特征，降低被封锁风险。不同网络环境需测试选择最优组合。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 显示配置已加载但无法访问外网，可能原因？</h5></div>
-    <div class="panel-body">
-        检查是否启用了系统代理或 TUN 模式，确认浏览器是否使用系统代理设置；查看防火墙或杀软是否拦截 WinXray；确认节点是否被机场下架或订阅失效，必要时重新导入订阅并测速。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密如何确保数据安全？</h5></div>
-    <div class="panel-body">
-        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下，保证节点可用，提升数据安全和连接稳定性，降低被检测风险，确保长期安全访问。    </div>
+        在 PassWall2 面板中点击“订阅管理”，输入或更新订阅链接后，点击“手动更新”即可自动下载最新节点数据。也可设置定时任务每日自动更新，保持配置最新。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -432,16 +432,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-4-14-free-high-speed-nodes.htm" title="翻墙机场 | 4月14日22.4M/S|免费SSR节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/Singbox节点订阅节点分享">翻墙机场 | 4月14日22.4M/S|免费SSR节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/Singbox节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-18-clash-v2ray-ss-ssr.htm" title="翻墙机场 | 4月18日21.7M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点/Trojan节点订阅节点分享">翻墙机场 | 4月18日21.7M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点/Trojan节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-26-free-high-speed-nodes.htm" title="翻墙机场 | 4月26日22.2M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点订阅节点分享">翻墙机场 | 4月26日22.2M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-20-free-v2ray.htm" title="翻墙机场 | 4月20日22.4M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点分享">翻墙机场 | 4月20日22.4M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-17-node-share.htm" title="翻墙机场 | 4月17日20.9M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点分享">翻墙机场 | 4月17日20.9M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-12-free-high-speed-nodes.htm" title="翻墙机场 | 4月12日21.3M/S|免费V2ray节点/Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点订阅节点分享">翻墙机场 | 4月12日21.3M/S|免费V2ray节点/Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-10-free-node-subscribe-links.htm" title="翻墙机场 | 5月10日21.5M/S|免费Clash节点/SSR节点/Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点订阅节点分享">翻墙机场 | 5月10日21.5M/S|免费Clash节点/SSR节点/Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-11-free-v2ray-subscribe.htm" title="翻墙机场 | 5月11日19.2M/S|免费Clash节点/Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点订阅节点分享">翻墙机场 | 5月11日19.2M/S|免费Clash节点/Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-20-free-node-subscribe.htm" title="翻墙机场 | 5月20日21.1M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/Trojan节点订阅节点分享">翻墙机场 | 5月20日21.1M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/Trojan节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-29-free-high-speed-nodes.htm" title="翻墙机场 | 4月29日20.7M/S|免费Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点订阅节点分享">翻墙机场 | 4月29日20.7M/S|免费Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点订阅节点分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-4-16-clash-v2ray-ss-ssr.htm" title="翻墙机场 | 4月16日21M/S|免费V2ray节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点订阅节点分享">翻墙机场 | 4月16日21M/S|免费V2ray节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点订阅节点分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-25-free-high-speed-nodes.htm" title="翻墙机场 | 4月25日18.2M/S|免费SSR节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点/V2ray节点订阅节点分享">翻墙机场 | 4月25日18.2M/S|免费SSR节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点/V2ray节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-12-node-share-links.htm" title="翻墙机场 | 5月12日20.5M/S|免费Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点订阅节点分享">翻墙机场 | 5月12日20.5M/S|免费Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-17-node-share.htm" title="翻墙机场 | 4月17日20.9M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点分享">翻墙机场 | 4月17日20.9M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-6-node-share.htm" title="翻墙机场 | 5月6日19.8M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/V2ray节点订阅节点分享">翻墙机场 | 5月6日19.8M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/V2ray节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-12-free-high-speed-nodes.htm" title="翻墙机场 | 4月12日21.3M/S|免费V2ray节点/Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点订阅节点分享">翻墙机场 | 4月12日21.3M/S|免费V2ray节点/Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-26-free-high-speed-nodes.htm" title="翻墙机场 | 4月26日22.2M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点订阅节点分享">翻墙机场 | 4月26日22.2M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-14-free-node-subscribe.htm" title="翻墙机场 | 5月14日21M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/SSR节点订阅节点分享">翻墙机场 | 5月14日21M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/SSR节点订阅节点分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-20-free-v2ray.htm" title="翻墙机场 | 4月20日22.4M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点分享">翻墙机场 | 4月20日22.4M/S|免费SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点分享</a></li>
                     </ul>
     </div>
 </div>
@@ -453,7 +453,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>

@@ -287,14 +287,14 @@ IP地址：208.67.222.222 和 208.67.220.220</p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow TUN 模式与 SOCKS5 代理有什么区别？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 支持节点订阅的自动更新吗？</h5></div>
     <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，实现全局代理；SOCKS5 代理通常只影响指定应用。TUN 更适合全局加速，如游戏、视频和浏览器流量，提高网络稳定性和覆盖范围。<hr />    </div>
+        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期自动更新可保证节点列表始终有效，减少手动维护的工作量，提高使用效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆方式选择有什么讲究？</h5></div>
+    <div class="panel-heading"><h5>Clash 的规则订阅更新有哪些注意事项？</h5></div>
     <div class="panel-body">
-        混淆方式决定流量伪装特性，不同方式适应不同封锁环境。常用方式如 tls1.2_ticket_auth 模拟 HTTPS，http_simple 模拟 HTTP 请求，根据环境选择可提高抗封锁能力。<hr />    </div>
+        Clash 订阅更新需保证网络畅通，规则文件格式正确，并与客户端版本兼容。建议定期更新规则以获得最新节点和分流规则，同时注意避免频繁刷新造成性能问题。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Vmess 节点使用 WebSocket + TLS 时应注意哪些参数？</h5></div>
@@ -302,19 +302,14 @@ IP地址：208.67.222.222 和 208.67.220.220</p>
         需确保路径（path）与主机名（host）匹配服务器配置，TLS 证书有效，端口与防火墙设置开放。建议开启 mux 与 keepalive 优化连接稳定性，并定期测试延迟避免 CDN 缓存导致连接异常。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持节点订阅的自动更新吗？</h5></div>
+    <div class="panel-heading"><h5>SSR 的混淆方式选择有什么讲究？</h5></div>
     <div class="panel-body">
-        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期自动更新可保证节点列表始终有效，减少手动维护的工作量，提高使用效率。<hr />    </div>
+        混淆方式决定流量伪装特性，不同方式适应不同封锁环境。常用方式如 tls1.2_ticket_auth 模拟 HTTPS，http_simple 模拟 HTTP 请求，根据环境选择可提高抗封锁能力。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的 Web 面板有什么用途？</h5></div>
+    <div class="panel-heading"><h5>Mellow TUN 模式与 SOCKS5 代理有什么区别？</h5></div>
     <div class="panel-body">
-        Hiddify Next 自带 Web 管理面板，管理员可通过浏览器管理用户、监控流量、生成订阅链接并部署节点。无需命令行操作，极大提高管理效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 可以用于 Android 吗？</h5></div>
-    <div class="panel-body">
-        Matsuri 主要针对桌面平台开发，目前并未推出 Android 版本。但可使用其配置文件在兼容的客户端（如 Nekobox 或 Clash Android）中加载以获得类似体验。<hr />    </div>
+        TUN 模式拦截系统 IP 层流量，实现全局代理；SOCKS5 代理通常只影响指定应用。TUN 更适合全局加速，如游戏、视频和浏览器流量，提高网络稳定性和覆盖范围。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 还能用吗？</h5></div>
@@ -322,9 +317,9 @@ IP地址：208.67.222.222 和 208.67.220.220</p>
         虽然 SSR 项目早已停止维护，但部分服务器和机场仍提供 SSR 节点。SSR 使用的加密与混淆方式能应对部分防火墙检测。不过，建议用户逐步迁移到 V2Ray 或 Trojan 等更现代的协议以获得更好稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 如何结合策略组实现智能分流？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 的 Web 面板有什么用途？</h5></div>
     <div class="panel-body">
-        Surfboard 可根据策略组和规则文件自动选择最优节点处理流量。不同应用或网站可分配不同节点，保证低延迟和高速访问，同时减少手动切换节点的操作。<hr />    </div>
+        Hiddify Next 自带 Web 管理面板，管理员可通过浏览器管理用户、监控流量、生成订阅链接并部署节点。无需命令行操作，极大提高管理效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 节点订阅自动更新如何配置？</h5></div>
@@ -332,9 +327,14 @@ IP地址：208.67.222.222 和 208.67.220.220</p>
         用户可添加订阅 URL，Nekoray 会定期下载并替换旧节点。这样可保证节点列表始终最新，减少手动维护，提高使用效率，同时保证网络访问稳定可靠。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的规则订阅更新有哪些注意事项？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 如何结合策略组实现智能分流？</h5></div>
     <div class="panel-body">
-        Clash 订阅更新需保证网络畅通，规则文件格式正确，并与客户端版本兼容。建议定期更新规则以获得最新节点和分流规则，同时注意避免频繁刷新造成性能问题。    </div>
+        Surfboard 可根据策略组和规则文件自动选择最优节点处理流量。不同应用或网站可分配不同节点，保证低延迟和高速访问，同时减少手动切换节点的操作。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 可以用于 Android 吗？</h5></div>
+    <div class="panel-body">
+        Matsuri 主要针对桌面平台开发，目前并未推出 Android 版本。但可使用其配置文件在兼容的客户端（如 Nekobox 或 Clash Android）中加载以获得类似体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -382,16 +382,16 @@ IP地址：208.67.222.222 和 208.67.220.220</p>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-3.htm" title="翻墙机场 | 8月3日19.9M/S|免费V2ray节点/SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点订阅节点分享">翻墙机场 | 8月3日19.9M/S|免费V2ray节点/SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点订阅节点分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-v2ray-2026-8-15.htm" title="翻墙机场 | 8月15日19.9M/S|免费V2ray节点/SSR节点/Clash节点/Trojan节点/Shadowrocket节点/Singbox节点订阅节点分享">翻墙机场 | 8月15日19.9M/S|免费V2ray节点/SSR节点/Clash节点/Trojan节点/Shadowrocket节点/Singbox节点订阅节点分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-18-free-subscribe-node.htm" title="翻墙机场 | 8月18日19.9M/S|免费Trojan节点/Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点订阅节点分享">翻墙机场 | 8月18日19.9M/S|免费Trojan节点/Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点订阅节点分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-free-v2ray-subscribe.htm" title="翻墙机场 | 8月2日22M/S|免费Clash节点/Singbox节点/Trojan节点/SSR节点/V2ray节点/Shadowrocket节点订阅节点分享">翻墙机场 | 8月2日22M/S|免费Clash节点/Singbox节点/Trojan节点/SSR节点/V2ray节点/Shadowrocket节点订阅节点分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-v2ray-2026-8-11.htm" title="翻墙机场 | 8月11日19.2M/S|免费V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点订阅节点分享">翻墙机场 | 8月11日19.2M/S|免费V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点订阅节点分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-8-25.htm" title="翻墙机场 | 8月25日22M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/SSR节点订阅节点分享">翻墙机场 | 8月25日22M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/SSR节点订阅节点分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-17.htm" title="翻墙机场 | 8月17日19.8M/S|免费Shadowrocket节点/Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点订阅节点分享">翻墙机场 | 8月17日19.8M/S|免费Shadowrocket节点/Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点订阅节点分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-v2ray-2026-8-13.htm" title="翻墙机场 | 8月13日20.2M/S|免费V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点订阅节点分享">翻墙机场 | 8月13日20.2M/S|免费V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点订阅节点分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-20-free-subscribe-node.htm" title="翻墙机场 | 7月20日21.8M/S|免费Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点/Trojan节点订阅节点分享">翻墙机场 | 7月20日21.8M/S|免费Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点/Trojan节点订阅节点分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-22-free-node-subscribe.htm" title="翻墙机场 | 7月22日20.3M/S|免费SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点订阅节点分享">翻墙机场 | 7月22日20.3M/S|免费SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点订阅节点分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-23-free-node-subscribe-links.htm" title="翻墙机场 | 7月23日19.9M/S|免费V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点订阅节点分享">翻墙机场 | 7月23日19.9M/S|免费V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点订阅节点分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-10-node-share.htm" title="翻墙机场 | 8月10日22.8M/S|免费SSR节点/Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点/Clash节点订阅节点分享">翻墙机场 | 8月10日22.8M/S|免费SSR节点/Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点/Clash节点订阅节点分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-links-2026-7-29.htm" title="翻墙机场 | 7月29日20.7M/S|免费V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点订阅节点分享">翻墙机场 | 7月29日20.7M/S|免费V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点订阅节点分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-8-27.htm" title="翻墙机场 | 8月27日21M/S|免费Trojan节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Clash节点订阅节点分享">翻墙机场 | 8月27日21M/S|免费Trojan节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Clash节点订阅节点分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-26-free-v2ray-subscribe.htm" title="翻墙机场 | 7月26日20.7M/S|免费SSR节点/V2ray节点/Clash节点/Singbox节点/Trojan节点/Shadowrocket节点订阅节点分享">翻墙机场 | 7月26日20.7M/S|免费SSR节点/V2ray节点/Clash节点/Singbox节点/Trojan节点/Shadowrocket节点订阅节点分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-1.htm" title="翻墙机场 | 8月1日19.7M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点订阅节点分享">翻墙机场 | 8月1日19.7M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点订阅节点分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-free-subscribe-node.htm" title="翻墙机场 | 8月12日20.9M/S|免费SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点/Clash节点订阅节点分享">翻墙机场 | 8月12日20.9M/S|免费SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点/Clash节点订阅节点分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -403,7 +403,7 @@ IP地址：208.67.222.222 和 208.67.220.220</p>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
